@@ -34,12 +34,13 @@
         <div class="container-login100" style="background-image: url('{{asset('Index/images/bg-01.jpg')}}');">
             <div class="wrap-login100 p-t-30 p-b-50">
                 <span class="login100-form-title p-b-41">
-                    SELAMAT DATANG DI
+                    SELAMAT DATANG DI 
+                    <div>
+                        <span>SMK WIKRAMA BOGOR</span>
+                    </div>
                 </span>
-                <span class="login100-form-title p-b-41">
-                    SMK WIKRAMA BOGOR
-                </span>
-                <form class="login100-form validate-form p-b-33 p-t-5">
+                <form action="{{route('create')}}" method="post" class="login100-form validate-form p-b-33 p-t-5">
+                    {{ csrf_field() }}
                     <div class="container-login100-form-btn m-t-32">
                         <span class="form-control-focus-input100" align="center">
                             BUKU TAMU DIGITAL
@@ -47,12 +48,12 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap">
-                        <input class="input100" id="nama" type="text" name="username" placeholder="Nama Lengkap">
+                        <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap">
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
                         
                     <div class="wrap-input100 validate-input" data-validate = "Input Nomor Telepon">
-                        <input class="input100" type="text" name="nomor" id="nomor" placeholder="Nomor Telepon">
+                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon">
                         <span class="focus-input100" data-placeholder="&#xe83a;"></span>
                     </div>
 
@@ -66,10 +67,13 @@
                             BUKU TAMU DIGITAL
                         </span> -->
                         <h5>Keperluan</h5>
-                      <select class="input100"name="" id="" style="width: 100%;" name="" id="">
-                        <option disabled value>Pilih Keperluan</option>
-                        <option value=""></option>
-                      </select>
+                          <select class="input100"style="width: 100%;" name="keperluan" id="keperluan">
+                                <option value=""disable selected> Pilih Keperluan </option>
+                                <option value="Studi Banding">Studi Banding</option>
+                                <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
+                                <option value="Keuangan(TU)">Keuangan(TU)</option>
+                                <option value="Lain-lain">Lain-lain</option>
+                          </select>
                     </div>
 
                     <div class="container-login100-form-btn m-t-32">
@@ -85,7 +89,8 @@
     
 
     <div id="dropDownSelect1"></div>
-    
+    @include('sweetalert::alert')
+
 <!--===============================================================================================-->
     <script src="{{asset('Index/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

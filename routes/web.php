@@ -21,4 +21,5 @@ Route::get('/admin', function () {
     return view('HalamanDepan/beranda');
 });
 
-// SISWA
+
+Route::post('/', 'TamuController@store')->name('create');

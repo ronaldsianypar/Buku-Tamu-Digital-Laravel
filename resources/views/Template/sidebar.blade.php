@@ -47,7 +47,7 @@
             <!-- SISWA -->
               <li class="nav-item">
                 <a href="siswa" class="nav-link">
-                  <p>Siswa</p>
+                  <p>Data Tamu</p>
                 </a>
               </li>
               
