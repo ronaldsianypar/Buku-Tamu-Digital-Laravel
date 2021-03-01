@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
-    <link rel="icon" type="image/png" href="{{asset('Index/images/bg.jpg')}}"/>
+    <link rel="icon" type="image/png" href="{{asset('Index/images/bg-removebg.png')}}"/>
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('Index/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -26,6 +26,11 @@
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/main.css')}}">
+    <style>
+            .keperluan{
+                text-indent: 60px;
+            }
+    </style>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -63,17 +68,13 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                      <!-- <span class="focus-input100" align="center" style="width: 100%;">
-                            BUKU TAMU DIGITAL
-                        </span> -->
-                        <h5>Keperluan</h5>
-                          <select class="input100"style="width: 100%;" name="keperluan" id="keperluan">
-                                <option value=""disable selected> Pilih Keperluan </option>
-                                <option value="Studi Banding">Studi Banding</option>
-                                <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
-                                <option value="Keuangan(TU)">Keuangan(TU)</option>
-                                <option value="Lain-lain">Lain-lain</option>
-                          </select>
+                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan">
+                            <option value=""disable selected > Pilih Keperluan </option>
+                            <option value="Studi Banding">Studi Banding</option>
+                            <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
+                            <option value="Keuangan(TU)">Keuangan(TU)</option>
+                            <option value="Lain-lain">Lain-lain</option>
+                        </select>
                     </div>
 
                     <div class="container-login100-form-btn m-t-32">

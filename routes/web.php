@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
-
 Route::get('/admin', function () {
-    return view('HalamanDepan/beranda');
+    return view('Admin/dashboard');
 });
-
-
-Route::post('/', 'TamuController@store')->name('create');
+Route::get('/admin', 'DashboardController@index')->name('admin');
+Route::post('/create', 'TamuController@store')->name('create');
+Route::get('/tamu', 'AdminController@index')->name('tamu');

@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Beranda</li>
+              <li class="breadcrumb-item"><a href="#">Admin</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -42,12 +42,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
+        <div class="row" align="center">
+          <div class="col-lg-12 col-6" align="center">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>100</h3>
+                <h3>{{ $jml_tamu }}</h3>
 
                 <p>Jumlah Tamu</p>
               </div>
@@ -56,15 +56,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
+            <hr>  
           </div>
+
           <!-- ./col -->
+          
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>30</h3>
+                <h3>{{ $jml_studi_banding }}</h3>
 
-                <p>Bertemu Pemray</p>
+                <p>Studi Banding</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -75,11 +78,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-primary">
+            <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>40</h3>
+                <h3>{{ $jml_akademik }}</h3>
 
-                <p>Administrasi</p>
+                <p>Akademik(kurikulum/PS)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -92,9 +95,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>99+</h3>
+                <h3>{{ $jml_keuangan }}</h3>
 
-                <p>Keperluan Lainnya</p>
+                <p>Keuangan(TU)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -103,6 +106,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <!-- ./col -->
+             <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ $jml_lain }}</h3>
+
+                <p>Lain-lain</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
         </div>
         <!-- /.row -->
         <!-- Main row -->
