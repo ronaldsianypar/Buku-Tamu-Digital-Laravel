@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap">
-                        <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap">
+                        <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" required>
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
                         
@@ -75,7 +75,17 @@
                             <option value="Keuangan(TU)">Keuangan(TU)</option>
                             <option value="Lain-lain">Lain-lain</option>
                         </select>
+                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
+                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id">
+                            <option disabled selected>Jenis Tamu</option>
+                        @foreach ($jns_tamu as $view)
+                        <option value="{{$view->id}}">{{$view->jenistamu}}</option>
+                        @endforeach
+                        </select>
                     </div>
+                    
+
+                    
 
                     <div class="container-login100-form-btn m-t-32">
                         <button class="login100-form-btn">

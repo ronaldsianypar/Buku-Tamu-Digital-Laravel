@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tamu;
 use App\Jenistamu;
-class AdminController extends Controller
+class JenistamuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data_tamu = Tamu::with('jenistamu')->get();   
-        return view('Admin.data-tamu', compact('data_tamu'));
+        $jns_tamu = Jenistamu::all();
+        return view('Admin.Jenistamu.data-jenis-tamu', compact('jns_tamu'));
     }
 
     /**
@@ -25,7 +24,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $jns_tamu = Jenistamu::all();
+        return view('Admin.Jenistamu.create-jenis-tamu', compact('jns_tamu'));
     }
 
     /**
@@ -36,7 +36,10 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Jenistamu::create([
+            'jenistamu'=>$request->jenistamu,
+        ]);
+        return redirect('jenis-tamu')->with('toast_success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -58,7 +61,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jns_tamu = Jenistamu::findorfail($id);
+        return view('Admin.Jenistamu.edit-jenis-tamu', compact('jns_tamu'));
     }
 
     /**
@@ -70,7 +74,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jns_tamu = Jenistamu::findorfail($id);
+        $jns_tamu->update($request->all());
+        return redirect('jenis-tamu')->withSuccess('Data Berhasil Diubah!');
     }
 
     /**
@@ -81,6 +87,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jns_tamu = Jenistamu::findorfail($id);
+        $jns_tamu->delete();
+        return back()->with('info','Data Berhasil Dihapus!');
     }
 }

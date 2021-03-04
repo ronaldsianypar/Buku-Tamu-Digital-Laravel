@@ -34,11 +34,21 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{{route('tamu')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data Tamu
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('jenis-tamu')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Jenis Tamu
               </p>
             </a>
           </li>

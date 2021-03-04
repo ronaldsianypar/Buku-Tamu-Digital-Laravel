@@ -21,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data Tamu</h1>
+            <h1 class="m-0 text-dark">Jenis Tamu</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Data Tamu</li>
+              <li class="breadcrumb-item active">Jenis Tamu</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,32 +39,26 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools">
+                    <a href="{{route('create-jenis-tamu')}}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                     <!-- target="_blank" untuk membuka tab baru -->
                     <!-- <a href="#" target="_blank" class="btn btn-primary">Cetak Data <i class="fas fa-print"></i></a> -->
                 </div>
             </div>
-
             <div class="card-body table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                      <th>NO</th>
-                      <th>Nama</th>
-                      <th>Nomor Telepon</th>
-                      <th>Alamat</th>
-                      <th>Keperluan</th>
-                      <th>Jenis Tamu</th>
-                      <td align="center"><strong>Waktu</strong></td>
+                      <td style="width: 8%" align="center"><strong>NO</strong></td>
+                      <td align="center"><strong>Jenis Tamu</strong></td>
+                      <td align="center"><strong>Aksi</strong></td>
                     </tr>
-                    @foreach($data_tamu as $view)
+                    @foreach($jns_tamu as $view)
                     <tr>
-                      <th>{{ $loop->iteration }}</th>
-                      <th>{{ $view->nama }}</th>
-                      <th>{{ $view->no_telp }}</th>
-                      <th>{{ $view->alamat }}</th>
-                      <th>{{ $view->keperluan }}</th>
-                      <th>{{ $view->jenistamu->jenistamu }}</th>
-                      <th>{{ $view->created_at }}</th>
-                      <!-- <th>{{ date('d-m-Y', strtotime($view->tgl_lahir)) }}</th> -->
+                      <td align="center"><strong>{{ $loop->iteration  }}.</strong></td>
+                      <th>{{ $view->jenistamu }}</th>
+                      <td align="center">
+                        <a href="{{ route('edit-jenis-tamu', $view->id) }}"><i class="fas fa-edit" style="color:yellow"></i></a> | 
+                        <a href="{{ route('delete-jenis-tamu', $view->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                      </td>
                     </tr>
                     @endforeach
                 </table>
