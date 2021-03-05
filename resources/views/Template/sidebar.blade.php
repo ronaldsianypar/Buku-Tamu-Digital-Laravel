@@ -54,6 +54,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{route('cetak-data-tamu-form')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Laporan
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">
               <i class="nav-icon fas fa-door-open"></i>
               <p>Logout</p>

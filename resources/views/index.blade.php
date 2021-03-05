@@ -52,13 +52,13 @@
                         </span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap">
-                        <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" required>
+                    <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap" >
+                        <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" onkeypress="return event.charCode < 48 || event.charCode  >57" required>
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
                         
                     <div class="wrap-input100 validate-input" data-validate = "Input Nomor Telepon">
-                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon">
+                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon" onkeypress="return hanyaAngka(event)"  minlength="11" maxlength="13">
                         <span class="focus-input100" data-placeholder="&#xe83a;"></span>
                     </div>
 
@@ -101,7 +101,26 @@
 
     <div id="dropDownSelect1"></div>
     @include('sweetalert::alert')
+    <script language="javascript" type="text/javascript"> 
+        var maxAmount = 12;
+        function textCounter(textField, showCountField) {
+            if (textField.value.length > maxAmount) {
+                textField.value = textField.value.substring(0, maxAmount);
+            } else { 
+                showCountField.value = maxAmount - textField.value.length;
+            }
+        }
+    </script>
 
+    <!-- Untuk Membuat Inputan Hanya Menerima Angka -->
+    <script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>   
 <!--===============================================================================================-->
     <script src="{{asset('Index/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

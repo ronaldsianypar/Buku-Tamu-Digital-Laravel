@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data Tamu</h1>
+            <h1 class="m-0 text-dark">Data Tamu Perbulan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -47,24 +47,16 @@
             <div class="card-body table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                      <th>NO</th>
-                      <th>Nama</th>
-                      <th>Nomor Telepon</th>
-                      <th>Alamat</th>
-                      <th>Keperluan</th>
-                      <th>Jenis Tamu</th>
-                      <td align="center"><strong>Waktu</strong></td>
+                      <td style="width: 10%" align="center"><strong>Bulan Ke-</strong></td>
+                      <th>Jumlah Tamu</th>
                     </tr>
-                    @foreach($data_tamu as $view)
+                    @foreach($sumMonth as $view)
+                    
                     <tr>
-                      <th>{{ $loop->iteration }}</th>
-                      <th>{{ $view->nama }}</th>
-                      <th>{{ $view->no_telp }}</th>
-                      <th>{{ $view->alamat }}</th>
-                      <th>{{ $view->keperluan }}</th>
-                      <th>{{ $view->jenistamu->jenistamu }}</th>
-                      <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
+                      <td align="center"><strong>{{ $loop->iteration }}</strong></td>
+                      <th>{{ $view}} orang</th>
                     </tr>
+                    
                     @endforeach
                 </table>
             </div>

@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('data')}}" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <hr>  
           </div>
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"></a>
             </div>
           </div>
           <!-- ./col -->
@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"></a>
             </div>
           </div>
           <!-- ./col -->
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"></a>
             </div>
           </div>
           <!-- ./col -->
@@ -118,7 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"></a>
             </div>
           </div>
 
@@ -165,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer"></a>
             </div>
           </div>
            @endforeach

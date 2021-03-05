@@ -33,6 +33,16 @@ Route::post('/simpan-jenis-tamu', 'JenistamuController@store')->name('simpan-jen
 Route::get('/edit-jenis-tamu/{id}', 'JenistamuController@edit')->name('edit-jenis-tamu');
 Route::post('/update-jenis-tamu/{id}', 'JenistamuController@update')->name('update-jenis-tamu');
 Route::get('/delete-jenis-tamu/{id}', 'JenistamuController@destroy')->name('delete-jenis-tamu');
+//end
+
+//Laporan
+Route::get('/cetak-tamu', 'TamuController@print')->name('cetak-tamu');
+Route::get('/cetak-data-tamu-form', 'TamuController@printForm')->name('cetak-data-tamu-form');
+Route::get('/cetak-data-pertanggal/{tglawal}/{tglakhir}', 'TamuController@printFormPertanggal')->name('cetak-data-pertanggal');
+
+Route::get('data', 'TamuController@dataTamu')->name('data');
+//end
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
