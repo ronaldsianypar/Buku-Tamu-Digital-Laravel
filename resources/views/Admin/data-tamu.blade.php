@@ -59,7 +59,7 @@
                     <tr>
                       <th>{{ $loop->iteration }}</th>
                       <th>{{ $view->nama }}</th>
-                      <th>{{ $view->no_telp }}</th>
+                      <th><a target="_blank" href="https://wa.me/{{ $view->no_telp }}">{{ $view->no_telp }}</a></th>
                       <th>{{ $view->alamat }}</th>
                       <th>{{ $view->keperluan }}</th>
                       <th>{{ $view->jenistamu->jenistamu }}</th>
