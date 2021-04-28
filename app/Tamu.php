@@ -15,7 +15,9 @@ class Tamu extends Model
     	'no_telp',
     	'alamat',
     	'keperluan',
-        'jenistamu_id'];
+        'jenistamu_id',
+        'signature'
+    ];
     public function jenistamu()
     {
     	return $this->belongsTo(Jenistamu::class);

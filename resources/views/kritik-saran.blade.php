@@ -47,56 +47,25 @@ height: auto;
         <div class="container-login100" style="background-image: url('{{asset('Index/images/bg-01.jpg')}}');">
             <div class="wrap-login100 p-t-30 p-b-50">
                 <span class="login100-form-title p-b-41">
-                   BUKU TAMU DIGITAL
+                    KRITIK DAN SARAN 
                 </span>
-                <form action="{{route('create')}}" method="post" class="login100-form validate-form p-b-33 p-t-5">
+                <form action="#" method="post" class="login100-form validate-form p-b-33 p-t-5">
                     {{ csrf_field() }}
                     <div class="container-login100-form-btn m-t-32">
                         <span class="form-control-focus-input100" align="center">
                             
                         </span>
-
+                        
                     </div>
                     <a href="/">Kembali</a>
                     <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap" >
                         <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" onkeypress="return event.charCode <48 || event.charCode >57" required>
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
-                        
-                    <div class="wrap-input100 validate-input" data-validate = "Input Nomor Telepon">
-                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon" onkeypress="return hanyaAngka(event)"  minlength="11" maxlength="13">
-                        <span class="focus-input100" data-placeholder="&#xe83a;"></span>
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Input Alamat">
-                        <input class="input100" type="text" name="alamat" id="alamat" placeholder="Alamat">
-                        <span class="focus-input100" data-placeholder="&#xe82d;"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan">
-                            <option value=""disable selected > Pilih Keperluan </option>
-                            <option value="Studi Banding">Studi Banding</option>
-                            <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
-                            <option value="Keuangan(TU)">Keuangan(TU)</option>
-                            <option value="Lain-lain">Lain-lain</option>
-                        </select>
-                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id">
-                            <option disabled selected>Jenis Tamu</option>
-                        @foreach ($jns_tamu as $view)
-                        <option value="{{$view->id}}">{{$view->jenistamu}}</option>
-                        @endforeach
-                        </select>
-                    </div>
-
-                    <div class="col-md-12">
-                    <label class="" for="">Tandatangan</label>
-                    <br/>
-                    <div id="signaturePad" ></div>
-                    <br/>
-                    <button id="clear" class="btn btn-danger btn-sm">Hapus Tandatangan</button>
-                    <textarea id="signature64" name="signed" style="display: none"></textarea>
+                    <div class="wrap-input100 validate-input" data-validate = "Input Kritik dan Saran">
+                        <input class="input100" type="text" name="kritik_saran" id="kritik_saran" placeholder="Kritik dan Saran">
+                        <span class="focus-input100" data-placeholder="&#xe81d;"></span>
                     </div>
 
                     <div class="container-login100-form-btn m-t-32">
@@ -112,37 +81,7 @@ height: auto;
     
 
     <div id="dropDownSelect1"></div>
-    @include('sweetalert::alert')
-    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
-    <script type="text/javascript">
-    var signaturePad = $('#signaturePad').signature({syncField: '#signature64', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-    e.preventDefault();
-    signaturePad.signature('clear');
-    $("#signature64").val('');
-    });
-    </script>
-    <script language="javascript" type="text/javascript"> 
-        var maxAmount = 12;
-        function textCounter(textField, showCountField) {
-            if (textField.value.length > maxAmount) {
-                textField.value = textField.value.substring(0, maxAmount);
-            } else { 
-                showCountField.value = maxAmount - textField.value.length;
-            }
-        }
-    </script>
-
-    <!-- Untuk Membuat Inputan Hanya Menerima Angka -->
-    <script>
-        function hanyaAngka(event) {
-            var angka = (event.which) ? event.which : event.keyCode
-            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
-                return false;
-            return true;
-        }
-    </script>   
+    @include('sweetalert::alert') 
 <!--===============================================================================================-->
     <script src="{{asset('Index/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

@@ -14,17 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landingpage');
 });
 // Route::get('/admin', function () {
 //     return view('Admin/dashboard');
 // });
 
+//BukuTamu
 Route::post('/create', 'TamuController@store')->name('create');
-Route::get('/', 'TamuController@index')->name('');
+Route::get('/buku-tamu', 'TamuController@index')->name('bukutamu');
 Route::get('/tamu', 'AdminController@index')->name('tamu');
-
+//end
 Auth::routes();
+
+//Kritik&saran
+Route::get('/kritik-saran', 'KritiksaranController@index')->name('kritik-saran'); 
+//end
 
 //Jenis Tamu
 Route::get('/jenis-tamu', 'JenistamuController@index')->name('jenis-tamu');
@@ -39,7 +44,6 @@ Route::get('/delete-jenis-tamu/{id}', 'JenistamuController@destroy')->name('dele
 Route::get('/cetak-tamu', 'TamuController@print')->name('cetak-tamu');
 Route::get('/cetak-data-tamu-form', 'TamuController@printForm')->name('cetak-data-tamu-form');
 Route::get('/cetak-data-pertanggal/{tglawal}/{tglakhir}', 'TamuController@printFormPertanggal')->name('cetak-data-pertanggal');
-
 Route::get('data', 'TamuController@dataTamu')->name('data');
 //end
 
@@ -47,4 +51,8 @@ Route::get('data', 'TamuController@dataTamu')->name('data');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'HomeController@logout')->name('logout');
+
+//Coba ttd
+Route::get('laravel-signature-pad','SignatureController@index');
+Route::post('laravel-signature-pad','SignatureController@store');
 

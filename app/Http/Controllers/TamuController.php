@@ -40,15 +40,31 @@ class TamuController extends Controller
     {
        // dd($request->all());
 
-        Tamu::create([
-        'nama' => $request->nama,
-        'no_telp' => $request->no_telp,
-        'alamat' => $request->alamat,
-        'keperluan' => $request->keperluan,
-        'jenistamu_id' => $request->jenistamu_id,
-        ]);
-
-        return redirect('/')->with('toast_success', 'Terima Kasih, Data Berhasil Disimpan!');
+        $folderPath = public_path('upload/');
+       
+        $image_parts = explode(";base64,", $request->signed);
+             
+        $image_type_aux = explode("image/", $image_parts[0]);
+           
+        $image_type = $image_type_aux[1];
+           
+        $image_base64 = base64_decode($image_parts[1]);
+ 
+        $signature = uniqid() . '.'.$image_type;
+           
+        $file = $folderPath . $signature;
+ 
+        file_put_contents($file, $image_base64);
+ 
+        $save = new Tamu;
+        $save->nama = $request->nama;
+        $save->no_telp = $request->no_telp;
+        $save->alamat= $request->alamat;
+        $save->keperluan = $request->keperluan;
+        $save->signature = $signature;
+        $save->jenistamu_id = $request->jenistamu_id;
+        $save->save();
+        return redirect('/')->withSuccess('Terima Kasih, Data Berhasil Disimpan!');
     }
 
     /**
@@ -82,7 +98,9 @@ class TamuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dat = Biodata::findOrFail($id);
+        $dat->update($request->all());
+        return view('index', compact('dat'));
     }
 
     /**
