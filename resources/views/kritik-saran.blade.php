@@ -49,7 +49,7 @@ height: auto;
                 <span class="login100-form-title p-b-41">
                     KRITIK DAN SARAN 
                 </span>
-                <form action="#" method="post" class="login100-form validate-form p-b-33 p-t-5">
+                <form action="{{route('create-kritik')}}" method="post" class="login100-form validate-form p-b-33 p-t-5">
                     {{ csrf_field() }}
                     <div class="container-login100-form-btn m-t-32">
                         <span class="form-control-focus-input100" align="center">

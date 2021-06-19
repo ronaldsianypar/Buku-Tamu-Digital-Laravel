@@ -27,17 +27,25 @@
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-<link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
     <style>
-            .keperluan{
-                text-indent: 60px;
-            }
-            .kbw-signature { width: 100%; height: 180px;}
-#signaturePad canvas{
-width: 100% !important;
-height: auto;
+        .keperluan{
+            text-indent: 60px;
+        }
+        .kbw-signature { 
+            width: 100%; height: 180px;
+        }
+        #signaturePad canvas{
+        width: 100% !important;
+        height: auto;
+        }
+         #results {
+          padding:20px; border:1px solid; background:#ccc; 
+        }
     </style>
 <!--===============================================================================================-->
 </head>
@@ -64,25 +72,24 @@ height: auto;
                     </div>
                         
                     <div class="wrap-input100 validate-input" data-validate = "Input Nomor Telepon">
-                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon" onkeypress="return hanyaAngka(event)"  minlength="11" maxlength="13">
+                        <input class="input100" type="text" name="no_telp" id="no_telp" placeholder="Nomor Telepon" onkeypress="return hanyaAngka(event)"  minlength="11" maxlength="13"  required>
                         <span class="focus-input100" data-placeholder="&#xe83a;"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Input Alamat">
-                        <input class="input100" type="text" name="alamat" id="alamat" placeholder="Alamat">
+                        <input class="input100" type="text" name="alamat" id="alamat" placeholder="Alamat"  required>
                         <span class="focus-input100" data-placeholder="&#xe82d;"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan">
+                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan"  required>
                             <option value=""disable selected > Pilih Keperluan </option>
                             <option value="Studi Banding">Studi Banding</option>
                             <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
                             <option value="Keuangan(TU)">Keuangan(TU)</option>
-                            <option value="Lain-lain">Lain-lain</option>
                         </select>
-                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id">
+                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan" required>
+                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id" required>
                             <option disabled selected>Jenis Tamu</option>
                         @foreach ($jns_tamu as $view)
                         <option value="{{$view->id}}">{{$view->jenistamu}}</option>
@@ -90,15 +97,35 @@ height: auto;
                         </select>
                     </div>
 
-                    <div class="col-md-12">
-                    <label class="" for="">Tandatangan</label>
-                    <br/>
-                    <div id="signaturePad" ></div>
-                    <br/>
-                    <button id="clear" class="btn btn-danger btn-sm">Hapus Tandatangan</button>
-                    <textarea id="signature64" name="signed" style="display: none"></textarea>
+                    <div required>
+                        <div required>
+                            <div id="foto" required></div>
+                            <br/>
+                           
+                            <button class="btn btn-danger btn-sm" onClick="take_snapshot()">Ambil Foto</button>
+                            <br>
+                           
+                            <input type="hidden" name="image" class="image-tag" required>
+                        </div>
+                        <div required>
+                            <br>
+                            <div id="results" required>Gambar yang Anda ambil akan muncul di sini...</div>
+                        </div>
+                        <div class="col-md-12 text-center" required>
+                            
+                        </div>
                     </div>
 
+                    <div class="col-md-12" required>
+                    <label class="" for="" required>Tandatangan</label>
+                    <br/>
+                    <div id="signaturePad" required></div>
+                    <br/>
+                    <button id="clear" class="btn btn-danger btn-sm">Hapus Tandatangan</button>
+                    <textarea id="signature64" name="signed" style="display: none" required></textarea>
+                    </div>
+
+                    
                     <div class="container-login100-form-btn m-t-32">
                         <button class="login100-form-btn">
                             Selesai
@@ -115,6 +142,7 @@ height: auto;
     @include('sweetalert::alert')
     <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
     <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+    
     <script type="text/javascript">
     var signaturePad = $('#signaturePad').signature({syncField: '#signature64', syncFormat: 'PNG'});
     $('#clear').click(function(e) {
@@ -123,6 +151,7 @@ height: auto;
     $("#signature64").val('');
     });
     </script>
+
     <script language="javascript" type="text/javascript"> 
         var maxAmount = 12;
         function textCounter(textField, showCountField) {
@@ -142,7 +171,32 @@ height: auto;
                 return false;
             return true;
         }
-    </script>   
+    </script>
+
+    <!-- Configure a few settings and attach camera -->
+        <script language="JavaScript">
+            Webcam.set({
+                width: 490,
+                height: 390,
+                image_format: 'jpeg',
+                jpeg_quality: 90
+            });
+          
+            Webcam.attach( '#foto' );
+          
+            function take_snapshot() {
+                Webcam.snap( function(data_uri) {
+                    $(".image-tag").val(data_uri);
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                } );
+            }
+            $('#hapus').click(function(e) {
+            e.preventDefault();
+            signaturePad.signature('hapus');
+            $("#results").val('');
+            });
+
+        </script>   
 <!--===============================================================================================-->
     <script src="{{asset('Index/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

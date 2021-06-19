@@ -21,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Data Tamu</h1>
+            <h1 class="m-0 text-dark">Kritik dan Saran</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Data Tamu</li>
+              <li class="breadcrumb-item active">Kritik dan Saran</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -40,7 +40,7 @@
             <div class="card-header">
                 <div class="card-tools">
                     <!-- target="_blank" untuk membuka tab baru -->
-                    <a href="{{route('cetak-tamu')}}" target="_blank" class="btn btn-primary">Cetak Semua Data <i class="fas fa-print"></i></a>
+                    <!-- <a href="#" target="_blank" class="btn btn-primary">Cetak Data <i class="fas fa-print"></i></a> -->
                 </div>
             </div>
 
@@ -49,24 +49,14 @@
                     <tr>
                       <th>NO</th>
                       <th>Nama</th>
-                      <th>Nomor Telepon</th>
-                      <th>Alamat</th>
-                      <th>Keperluan</th>
-                      <th>Jenis Tamu</th>
-                      <th>Foto Tamu</th>
-                      <th>Tanda Tangan</th>
+                      <th>Kritik dan Saran</th>
                       <td align="center"><strong>Waktu</strong></td>
                     </tr>
-                    @foreach($data_tamu as $view)
+                    @foreach($data as $view)
                     <tr>
                       <th>{{ $loop->iteration }}</th>
                       <th>{{ $view->nama }}</th>
-                      <th><a target="_blank" href="https://wa.me/{{ $view->no_telp }}">{{ $view->no_telp }}</a></th>
-                      <th>{{ $view->alamat }}</th>
-                      <th>{{ $view->keperluan }}</th>
-                      <th>{{ $view->jenistamu->jenistamu }}</th>
-                      <th><img src="{{ url('/upload/', $view->foto) }}"></th>
-                      <th><img src="{{ url('/upload/', $view->signature) }}"></th>
+                      <th>{{ $view->kritik_saran }}</th>
                       <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
                     </tr>
                     @endforeach

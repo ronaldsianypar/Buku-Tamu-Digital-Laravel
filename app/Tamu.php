@@ -16,7 +16,8 @@ class Tamu extends Model
     	'alamat',
     	'keperluan',
         'jenistamu_id',
-        'signature'
+        'signature',
+        'foto',
     ];
     public function jenistamu()
     {

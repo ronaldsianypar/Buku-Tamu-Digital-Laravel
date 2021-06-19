@@ -25,6 +25,8 @@
                 <th>Alamat</th>
                 <th>Keperluan</th>
                 <th>Jenis Tamu</th>
+                <th>Foto Tamu</th>
+				<th>Tanda Tangan</th>
                 <td align="center"><strong>Waktu</strong></td>
             </tr>
             @foreach($cetakdata_tamu as $view)
@@ -35,6 +37,8 @@
                 <th>{{ $view->alamat }}</th>
                 <th>{{ $view->keperluan }}</th>
                 <th>{{ $view->jenistamu->jenistamu }}</th>
+                <th><img src="{{ url('/upload/',$view->foto) }}"></th>
+				<th><img src="{{ url('/upload/',$view->signature) }}"></th>
                 <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
             </tr>
             @endforeach

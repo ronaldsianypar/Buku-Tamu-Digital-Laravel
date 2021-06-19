@@ -54,6 +54,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{route('data-kritik-saran')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Kritik dan Saran
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{route('cetak-data-tamu-form')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>

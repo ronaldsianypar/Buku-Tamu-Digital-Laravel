@@ -62,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- ./col -->
           
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-4 col-8">
             <!-- small box -->
             <div class="small-box bg-white">
               <div class="inner">
@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-4 col-8">
             <!-- small box -->
             <div class="small-box bg-white">
               <div class="inner">
@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-4 col-8">
             <!-- small box -->
             <div class="small-box bg-white">
               <div class="inner">
@@ -106,21 +106,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="#" class="small-box-footer"></a>
             </div>
           </div>
-          <!-- ./col -->
-             <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-white">
-              <div class="inner">
-                <h3>{{ $jml_lain }}</h3>
 
-                <p>Lain-lain</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer"></a>
-            </div>
-          </div>
 
         </div>
         <!-- /.row -->
@@ -148,7 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </a>
             </div>
             <hr>  
           </div>

@@ -28,7 +28,9 @@ Route::get('/tamu', 'AdminController@index')->name('tamu');
 Auth::routes();
 
 //Kritik&saran
-Route::get('/kritik-saran', 'KritiksaranController@index')->name('kritik-saran'); 
+Route::get('/kritik-saran', 'KritikController@index')->name('kritik-saran'); 
+Route::post('/create-kritik', 'KritikController@store')->name('create-kritik');
+Route::get('/data-kritik-saran', 'KritiksaranController@index' )->name('data-kritik-saran');
 //end
 
 //Jenis Tamu
