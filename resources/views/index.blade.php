@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +26,47 @@
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+    <!-- Fontawesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     
     <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+     <script type='text/javascript'>
+    $(window).load(function(){
+    $("#keperluan").change(function() {
+                console.log($("#keperluan option:selected").val());
+                if ($("#keperluan option:selected").val() == 'Akademik(kurikulum/PS)') {
+                    $('#sb_instansi').prop('hidden', 'true');
+                    $('#sb_jabatan').prop('hidden', 'true');
+                    $('#sb_kritik_saran').prop('hidden', 'true');
+                    $('#sb_saran').prop('hidden', 'true');
+
+                }else if ($("#keperluan option:selected").val() == 'Keuangan(TU)') {
+                    $('#sb_instansi').prop('hidden', 'true');
+                    $('#sb_jabatan').prop('hidden', 'true');
+                    $('#sb_kritik_saran').prop('hidden', 'true');
+                    $('#sb_saran').prop('hidden', 'true');
+                }else if ($("#keperluan option:selected").val() == '') {
+                    $('#sb_instansi').prop('hidden', 'true');
+                    $('#sb_jabatan').prop('hidden', 'true');
+                    $('#sb_kritik_saran').prop('hidden', 'true');
+                    $('#sb_saran').prop('hidden', 'true');
+                }else {
+                    $('#sb_instansi').prop('hidden', false);
+                    $('#sb_jabatan').prop('hidden', false);
+                    $('#sb_kritik_saran').prop('hidden', false);
+                    $('#sb_saran').prop('hidden', false);
+                }
+            });
+    });
+    </script>
+
     <style>
         .keperluan{
             text-indent: 60px;
@@ -45,6 +80,12 @@
         }
          #results {
           padding:20px; border:1px solid; background:#ccc; 
+        }
+        .box-1 {
+         width: 200px;
+         padding: 20px;
+         color: white;
+         margin: 0 ; /* code ini akan membuat div berada di tengah atas */
         }
     </style>
 <!--===============================================================================================-->
@@ -61,11 +102,37 @@
                     {{ csrf_field() }}
                     <div class="container-login100-form-btn m-t-32">
                         <span class="form-control-focus-input100" align="center">
-                            
                         </span>
+                    </div>
+                    <div class="col-md-12">
+                        <a type="button" class="btn btn-danger btn-sm" href="/"><i class="fas fa-backward"></i> Kembali</a>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
+                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan"  required>
+                            <option value=""disable selected > Pilih Keperluan </option>
+                            <option value="Studi Banding">Studi Banding</option>
+                            <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
+                            <option value="Keuangan(TU)">Keuangan(TU)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input class="input100" type="text" name="sb_instansi" id="sb_instansi" value="" placeholder="Input Asal Instansi/Sekolah" hidden />
 
                     </div>
-                    <a href="/">Kembali</a>
+                    <div>
+                        <input class="input100" type="text" name="sb_jabatan" id="sb_jabatan" value="" placeholder="Input Jabatan" hidden />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan" required>
+                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id" required>
+                            <option disabled selected>Jenis Tamu</option>
+                        @foreach ($jns_tamu as $view)
+                        <option value="{{$view->id}}">{{$view->jenistamu}}</option>
+                        @endforeach
+                        </select>
+                    </div>
+
                     <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap" >
                         <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" onkeypress="return event.charCode <48 || event.charCode >57" required>
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -80,36 +147,31 @@
                         <input class="input100" type="text" name="alamat" id="alamat" placeholder="Alamat"  required>
                         <span class="focus-input100" data-placeholder="&#xe82d;"></span>
                     </div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan">
-                        <select class="input100"style="width: 100%;" name="keperluan" id="keperluan"  required>
-                            <option value=""disable selected > Pilih Keperluan </option>
-                            <option value="Studi Banding">Studi Banding</option>
-                            <option value="Akademik(kurikulum/PS)">Akademik(kurikulum/PS)</option>
-                            <option value="Keuangan(TU)">Keuangan(TU)</option>
-                        </select>
-                    <div class="wrap-input100 validate-input" data-validate = "Pilih Keperluan" required>
-                        <select class="input100"style="width: 100%;" name="jenistamu_id" id="jenistamu_id" required>
-                            <option disabled selected>Jenis Tamu</option>
-                        @foreach ($jns_tamu as $view)
-                        <option value="{{$view->id}}">{{$view->jenistamu}}</option>
-                        @endforeach
-                        </select>
+                    <div>
+                        <input class="input100" type="text"  name="sb_kritik_saran" id="sb_kritik_saran" value="" placeholder="Input Kritik" hidden>
                     </div>
-
+                    <div>
+                        <input class="input100" type="text"  name="sb_saran" id="sb_saran" value="" placeholder="Input Saran" hidden>
+                    </div>
+                    <hr>
                     <div required>
-                        <div required>
-                            <div id="foto" required></div>
+                        <div required class="text-center">
+                            <div id="foto" class="box-1" required></div>
                             <br/>
                            
-                            <button class="btn btn-danger btn-sm" onClick="take_snapshot()">Ambil Foto</button>
+                            <button class="btn btn-danger btn-sm col-md-11" onClick="take_snapshot()"><i class="fas fa-camera"> </i> Ambil Foto</button>
+                            <div class="col-md-12">
+                                <p><i>*Jika Salah, Anda Dapat Mengambil Foto Kembali.</i></p>
+                            </div>
+                        
                             <br>
                            
-                            <input type="hidden" name="image" class="image-tag" required>
+                            <input type="hidden" name="image" class="image-responsive" required>
                         </div>
-                        <div required>
+                        <div required class="img-responsive">
                             <br>
                             <div id="results" required>Gambar yang Anda ambil akan muncul di sini...</div>
+                            <br>
                         </div>
                         <div class="col-md-12 text-center" required>
                             
@@ -121,7 +183,7 @@
                     <br/>
                     <div id="signaturePad" required></div>
                     <br/>
-                    <button id="clear" class="btn btn-danger btn-sm">Hapus Tandatangan</button>
+                    <button id="clear" class="btn btn-danger col-sm-12"><i class="fas fa-trash-alt"></i> Hapus Tandatangan</button>
                     <textarea id="signature64" name="signed" style="display: none" required></textarea>
                     </div>
 
@@ -176,17 +238,17 @@
     <!-- Configure a few settings and attach camera -->
         <script language="JavaScript">
             Webcam.set({
-                width: 490,
-                height: 390,
+                width: 350,
+                height: 300,
                 image_format: 'jpeg',
-                jpeg_quality: 90
+                jpeg_quality: 100
             });
           
             Webcam.attach( '#foto' );
           
             function take_snapshot() {
                 Webcam.snap( function(data_uri) {
-                    $(".image-tag").val(data_uri);
+                    $(".image-responsive").val(data_uri);
                     document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
                 } );
             }

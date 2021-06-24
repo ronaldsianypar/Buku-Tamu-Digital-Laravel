@@ -47,17 +47,19 @@
             <div class="card-body table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                      <th>NO</th>
-                      <th>Nama</th>
-                      <th>Kritik dan Saran</th>
+                      <td align="center"><strong>No</strong></td>
+                      <td align="center"><strong>Nama</strong></td>
+                      <td align="center"><strong>Kritik</strong></td>
+                      <td align="center"><strong>Saran</strong></td>
                       <td align="center"><strong>Waktu</strong></td>
                     </tr>
                     @foreach($data as $view)
                     <tr>
                       <th>{{ $loop->iteration }}</th>
                       <th>{{ $view->nama }}</th>
-                      <th>{{ $view->kritik_saran }}</th>
-                      <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
+                      <th>{{ $view->sb_kritik_saran }}</th>
+                      <th>{{ $view->sb_saran }}</th>
+                      <td align="center"><strong>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</strong></td>
                     </tr>
                     @endforeach
                 </table>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Kritik;
+use App\Tamu;
 use Illuminate\Http\Request;
 
 class KritiksaranController extends Controller
@@ -13,8 +13,8 @@ class KritiksaranController extends Controller
      */
     public function index()
     {
-        $data = Kritik::all();
-   return view('Admin.data-kritik-saran', compact('data'));
+        $data = Tamu::with('jenistamu')->latest()->get();
+        return view('Admin.data-kritik-saran', compact('data'));
     }
 
     /**

@@ -47,6 +47,9 @@ Route::get('/cetak-tamu', 'TamuController@print')->name('cetak-tamu');
 Route::get('/cetak-data-tamu-form', 'TamuController@printForm')->name('cetak-data-tamu-form');
 Route::get('/cetak-data-pertanggal/{tglawal}/{tglakhir}', 'TamuController@printFormPertanggal')->name('cetak-data-pertanggal');
 Route::get('data', 'TamuController@dataTamu')->name('data');
+Route::get('/cetak-tamu/export-excel', 'AdminController@export_excel')->name('export-excel');
+Route::get('/kritik-saran/export-excel', 'KritiksaranController@export_excel')->name('export-kritik-saran-excel');
+Route::get('/cetak-tamu/export-pdf', 'AdminController@cetak_pdf')->name('export-pdf');
 //end
 
 

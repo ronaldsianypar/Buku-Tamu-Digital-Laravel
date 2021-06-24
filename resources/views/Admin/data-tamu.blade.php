@@ -41,33 +41,39 @@
                 <div class="card-tools">
                     <!-- target="_blank" untuk membuka tab baru -->
                     <a href="{{route('cetak-tamu')}}" target="_blank" class="btn btn-primary">Cetak Semua Data <i class="fas fa-print"></i></a>
+                    <a href="{{route('export-excel')}}" target="_blank" class="btn btn-primary">Export Excel<i class="fas fa-print"></i></a>
+                    <!-- <a href="{{route('export-pdf')}}" target="_blank" class="btn btn-primary">Export PDF<i class="fas fa-print"></i></a> -->
                 </div>
             </div>
 
             <div class="card-body table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                      <th>NO</th>
-                      <th>Nama</th>
-                      <th>Nomor Telepon</th>
-                      <th>Alamat</th>
-                      <th>Keperluan</th>
-                      <th>Jenis Tamu</th>
-                      <th>Foto Tamu</th>
-                      <th>Tanda Tangan</th>
+                      <td align="center"><strong>NO</strong></td>
+                      <td align="center"><strong>Nama</strong></td>
+                      <td align="center"><strong>Nomor Telepon</strong></td>
+                      <td align="center"><strong>Alamat</strong></td>
+                      <td align="center"><strong>Keperluan</strong></td>
+                      <td align="center"><strong>Instansi</strong></td>
+                      <td align="center"><strong>Jabatan</strong></td>
+                      <td align="center"><strong>Jenis Tamu</strong></td>
+                      <td align="center"><strong>Foto Tamu</strong></td>
+                      <td align="center"><strong>Tanda Tangan</strong></td>
                       <td align="center"><strong>Waktu</strong></td>
                     </tr>
                     @foreach($data_tamu as $view)
                     <tr>
-                      <th>{{ $loop->iteration }}</th>
-                      <th>{{ $view->nama }}</th>
-                      <th><a target="_blank" href="https://wa.me/{{ $view->no_telp }}">{{ $view->no_telp }}</a></th>
-                      <th>{{ $view->alamat }}</th>
-                      <th>{{ $view->keperluan }}</th>
-                      <th>{{ $view->jenistamu->jenistamu }}</th>
-                      <th><img src="{{ url('/upload/', $view->foto) }}"></th>
-                      <th><img src="{{ url('/upload/', $view->signature) }}"></th>
-                      <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
+                      <td><strong>{{ $loop->iteration }}</strong></td>
+                      <td><strong>{{ $view->nama }}</strong></td>
+                      <td><strong><a target="_blank" href="https://wa.me/{{ $view->no_telp }}">{{ $view->no_telp }}</a></strong></td>
+                      <td><strong>{{ $view->alamat }}</strong></td>
+                      <td><strong>{{ $view->keperluan }}</strong></td>
+                      <td><strong>{{ $view->sb_instansi }}</strong></td>
+                      <td><strong>{{ $view->sb_jabatan }}</strong></td>
+                      <th><strong>{{ $view->jenistamu->jenistamu }}</strong></td>
+                      <td align="center"><img src="{{ url('/upload/', $view->foto) }}"></strong></td>
+                      <td><img src="{{ url('/upload/', $view->signature) }}"></strong></td>
+                      <td><strong>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</strong></td>
                     </tr>
                     @endforeach
                 </table>

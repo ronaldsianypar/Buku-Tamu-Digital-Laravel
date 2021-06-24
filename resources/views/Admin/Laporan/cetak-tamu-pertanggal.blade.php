@@ -19,29 +19,37 @@
 		<p align="center"><b>Laporan Data Tamu</b></p>
 		<table class="static" align="center" rules="all" border="1px" style="width: 95%; ">
 			<tr>
-                <th>NO</th>
-                <th>Nama</th>
-                <th>Nomor Telepon</th>
-                <th>Alamat</th>
-                <th>Keperluan</th>
-                <th>Jenis Tamu</th>
-                <th>Foto Tamu</th>
-				<th>Tanda Tangan</th>
-                <td align="center"><strong>Waktu</strong></td>
-            </tr>
-                    @foreach($cetakPertanggal as $view)
-                    <tr>
-                      <th>{{ $loop->iteration }}</th>
-                      <th>{{ $view->nama }}</th>
-                      <th>{{ $view->no_telp }}</th>
-                      <th>{{ $view->alamat }}</th>
-                      <th>{{ $view->keperluan }}</th>
-                      <th>{{ $view->jenistamu->jenistamu }}</th>
-                      <th><img src="{{ url('/upload/',$view->foto) }}"></th>
-					  <th><img src="{{ url('/upload/',$view->signature) }}"></th>
-                      <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
-                    </tr>
-                    @endforeach
+          <th>NO</th>
+          <th>Nama</th>
+          <th>Nomor Telepon</th>
+          <th>Alamat</th>
+          <th>Kritik</th>
+          <th>Saran</th>
+          <th>Keperluan</th>
+          <th>Instansi</th>
+          <th>Jabatan</th>
+          <th>Jenis Tamu</th>
+          <th>Foto Tamu</th>
+				  <th>Tanda Tangan</th>
+          <td align="center"><strong>Waktu</strong></td>
+        </tr>
+        @foreach($cetakPertanggal as $view)
+        <tr>
+          <th>{{ $loop->iteration }}</th>
+          <th>{{ $view->nama }}</th>
+          <th>{{ $view->no_telp }}</th>
+          <th>{{ $view->alamat }}</th>
+          <th>{{ $view->sb_kritik_saran }}</th>
+          <th>{{ $view->sb_saran }}</th>
+          <th>{{ $view->keperluan }}</th>
+          <th>{{ $view->sb_instansi }}</th>
+          <th>{{ $view->sb_jabatan }}</th>
+          <th>{{ $view->jenistamu->jenistamu }}</th>
+          <th><img src="{{ url('/upload/',$view->foto) }}"></th>
+          <th><img src="{{ url('/upload/',$view->signature) }}"></th>
+          <th>{{ date('d-m-Y | H:i:s', strtotime($view->created_at)) }}</th>
+        </tr>
+        @endforeach
 		</table>
 	</div>
 	<!-- Untuk menampilkan print -->

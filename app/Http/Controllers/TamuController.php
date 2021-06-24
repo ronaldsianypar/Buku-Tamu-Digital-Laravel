@@ -40,19 +40,21 @@ class TamuController extends Controller
     {
        // dd($request->all());
         //TTD
-        $folderPath = public_path('upload/');
+        $folderPath1 = public_path('upload/');
        
-        $image_parts = explode(";base64,", $request->signed);
+        $image_parts1 = explode(";base64,", $request->signed);
              
-        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type_aux1 = explode("image/", $image_parts1[0]);
            
-        $image_type = $image_type_aux[1];
+        $image_type1 = $image_type_aux1[1];
            
-        $image_base64 = base64_decode($image_parts[1]);
+        $image_base641 = base64_decode($image_parts1[1]);
  
-        $signature = uniqid() . '.'.$image_type;
+        $signature1 = uniqid() . '.'.$image_type1;
            
-        $file = $folderPath . $signature;
+        $file1 = $folderPath1 . $signature1;
+        print_r($signature1);
+        file_put_contents($file1, $image_base641);
         //endttd
 
         //Webcam
@@ -71,15 +73,19 @@ class TamuController extends Controller
       
         print_r($fileName);
         //endttd
-        file_put_contents($file, $image_base64);
+
  
         $save = new Tamu;
         $save->nama = $request->nama;
         $save->no_telp = $request->no_telp;
         $save->alamat= $request->alamat;
+        $save->sb_kritik_saran = $request->sb_kritik_saran;
+        $save->sb_saran = $request->sb_saran;
         $save->keperluan = $request->keperluan;
+        $save->sb_instansi= $request->sb_instansi;
+        $save->sb_jabatan = $request->sb_jabatan;
         $save->jenistamu_id = $request->jenistamu_id;
-        $save->signature = $signature;
+        $save->signature = $signature1;
         $save->foto = $fileName;
         $save->save();
         return redirect('/')->withSuccess('Terima Kasih, Data Berhasil Disimpan!');

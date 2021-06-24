@@ -27,9 +27,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('Index/css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-<link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Fontawesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <style>
             .keperluan{
                 text-indent: 60px;
@@ -57,7 +60,9 @@ height: auto;
                         </span>
                         
                     </div>
-                    <a href="/">Kembali</a>
+                    <div class="col-md-12">
+                        <a type="button" class="btn btn-danger btn-sm" href="/"><i class="fas fa-backward"></i> Kembali</a>
+                    </div>
                     <div class="wrap-input100 validate-input" data-validate = "Input Nama Lengkap" >
                         <input class="input100" id="nama" type="text" name="nama" placeholder="Nama Lengkap" onkeypress="return event.charCode <48 || event.charCode >57" required>
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
