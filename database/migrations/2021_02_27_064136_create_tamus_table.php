@@ -19,6 +19,7 @@ class CreateTamusTable extends Migration
             $table->string('no_telp', 15);
             $table->text('alamat');
             $table->string('sb_kritik_saran', 100)->nullable();
+            $table->string('sb_saran', 100)->nullable();
             $table->string('keperluan', 100);
             $table->string('sb_instansi', 100)->nullable();
             $table->string('sb_jabatan', 100)->nullable();
